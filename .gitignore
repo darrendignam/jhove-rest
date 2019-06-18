@@ -1,0 +1,13 @@
+# Eclipse artifacts
+.classpath
+.settings
+.project
+
+# Java artifacts
+*.class
+*.jar
+
+# Mave artifacts
+target/
+
+
