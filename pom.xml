@@ -43,6 +43,7 @@
     <mvn.clean.version>3.1.0</mvn.clean.version>
     <mvn.compiler.version>3.8.0</mvn.compiler.version>
     <mvn.shade.version>3.1.1</mvn.shade.version>
+    <mvn.jar.version>2.4</mvn.jar.version>
     <mvn.javadoc.version>3.0.1</mvn.javadoc.version>
     <mvn.site.version>3.7.1</mvn.site.version>
     <mvn.source.version>3.0.1</mvn.source.version>
@@ -67,7 +68,18 @@
           <target>${java.version}</target>
         </configuration>
       </plugin>
-
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${mvn.jar.version}</version>
+          <configuration>
+              <archive>
+                  <manifest>
+                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                  </manifest>
+              </archive>
+          </configuration>
+      </plugin>
     </plugins>
   </build>
 
@@ -137,6 +149,78 @@
         <groupId>org.openpreservation.jhove</groupId>
         <artifactId>jhove-core</artifactId>
         <version>${jhove.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openpreservation.jhove</groupId>
+        <artifactId>jhove-ext-modules</artifactId>
+        <version>${jhove.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openpreservation.jhove.modules</groupId>
+        <artifactId>aiff-hul</artifactId>
+        <version>1.5.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openpreservation.jhove.modules</groupId>
+        <artifactId>ascii-hul</artifactId>
+        <version>1.4.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openpreservation.jhove.modules</groupId>
+        <artifactId>gif-hul</artifactId>
+        <version>1.4.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openpreservation.jhove.modules</groupId>
+        <artifactId>html-hul</artifactId>
+        <version>1.4.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openpreservation.jhove.modules</groupId>
+        <artifactId>jpeg-hul</artifactId>
+        <version>1.5.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openpreservation.jhove.modules</groupId>
+        <artifactId>jpeg2000-hul</artifactId>
+        <version>1.4.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openpreservation.jhove.modules</groupId>
+        <artifactId>pdf-hul</artifactId>
+        <version>1.12.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openpreservation.jhove.modules</groupId>
+        <artifactId>tiff-hul</artifactId>
+        <version>1.9.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openpreservation.jhove.modules</groupId>
+        <artifactId>utf8-hul</artifactId>
+        <version>1.7.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openpreservation.jhove.modules</groupId>
+        <artifactId>wave-hul</artifactId>
+        <version>1.6.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openpreservation.jhove.modules</groupId>
+        <artifactId>xml-hul</artifactId>
+        <version>1.5.1</version>
       </dependency>
 
     </dependencies>
