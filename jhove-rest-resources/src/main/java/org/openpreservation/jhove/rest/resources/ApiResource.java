@@ -1,6 +1,12 @@
 package org.openpreservation.jhove.rest.resources;
 
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.openpreservation.rest.environment.Environment;
+import org.openpreservation.rest.environment.Environments;
 
 	
 /**
@@ -19,6 +25,13 @@ public final class ApiResource {
 		super();
 	}
 
+    @GET
+    @Path("/info")
+    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    public static Environment getEnvironent() {
+        return Environments.getEnvironment();
+    }
+
     /**
      * @return a new {@link ByteStreamResource}
      */
@@ -30,8 +43,8 @@ public final class ApiResource {
     /**
      * @return a new {@link ByteStreamResource}
      */
-    @Path("/validate/")
-    public static JhoveResources validationResources() {
+    @Path("/jhove/")
+    public static JhoveResources jhoveResources() {
         return new JhoveResources();
     }
 }
