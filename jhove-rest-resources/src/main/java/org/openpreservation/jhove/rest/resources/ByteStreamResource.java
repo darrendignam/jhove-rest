@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.openpreservation.jhove.rest.resources;
 
@@ -22,7 +22,7 @@ import org.openpreservation.bytestreams.ByteStreams;
  * The REST resource definition for byte stream identification services, these
  * are JERSEY REST services and it's the annotations that perform the magic of
  * handling content types and serialisation.
- * 
+ *
  * @author <a href="mailto:carl@openpreservation.org">Carl Wilson</a>.
  *         </p>
  */
@@ -39,14 +39,14 @@ public class ByteStreamResource {
 	 *            InputStream for the uploaded file
 	 * @param contentDispositionHeader
 	 *            extra info about the uploaded file, currently unused.
-	 * @return the {@link org.verapdf.pdfa.metadata.bytestream.ByteStreamId} of
+	 * @return the {@link org.openpreservation.bytestream.ByteStreamId} of
 	 *         the uploaded file's byte stream serialised according to requested
 	 *         content type.
 	 */
 	@POST
 	@Path("/sha1")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
-	@Produces({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public static ByteStreamId getSha1(
 			@FormDataParam("file") InputStream uploadedInputStream,
 			@SuppressWarnings("unused") @FormDataParam("file") final FormDataContentDisposition contentDispositionHeader) {
@@ -68,7 +68,7 @@ public class ByteStreamResource {
 	 */
 	@GET
 	@Path("/sha1/null")
-	@Produces({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public static ByteStreamId getEmptySha1() {
 		return ByteStreams.nullByteStreamId();
 	}
@@ -84,7 +84,7 @@ public class ByteStreamResource {
 	@POST
 	@Path("/form-data")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
-	@Produces({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public static FormDataContentDisposition getFormDataInfo(
 			@SuppressWarnings("unused") @FormDataParam("file") InputStream uploadedInputStream,
 			@FormDataParam("file") final FormDataContentDisposition contentDispositionHeader) {
