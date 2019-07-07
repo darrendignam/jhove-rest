@@ -1,27 +1,3 @@
-var jhoveModules = {
-  modules : null,
-  populate : function (callback, contentType = 'json') {
-    $.ajax({
-      url         : '/api/jhove/modules',
-      dataType    : contentType,
-      type        : 'GET',
-      success     : function (data, textStatus, jqXHR) {
-        console.log(jqXHR);
-        jhoveModules.modules = data;
-        callback();
-      },
-      // HTTP Error handler
-      error       : function (jqXHR, textStatus, errorThrown) {
-        // Log full error to console
-        console.log('JHOVE Error: ' + textStatus + errorThrown);
-        console.log(jqXHR);
-        // Alert the user with details
-        alert('Something has gone wrong!!\n\nHTTP ' + jqXHR.status + ': ' + jqXHR.statusText);
-      }
-    });
-  }
-};
-
 /**
 * Document ready function, loaded up on start
 */
@@ -49,12 +25,12 @@ $(document).ready( function() {
     // Grab the data from the form object
     var formData = new FormData($('form')[0])
     // Call the validator, with result renderer as callback
-    jhoveValidator.validate(formData, function() {
+    jhoveRest.validator.validate(formData, function() {
       renderResult();
     });
   });
 
-  jhoveModules.populate(function() {
+  jhoveRest.modules.populate(function() {
 	renderModules();
   });
 });
@@ -88,7 +64,7 @@ function renderModules() {
 		  "value" : "${name}",
 		  "text"  : "${name}"
 		  };
-  $("select").json2html(jhoveModules.modules, transform);
+  $("select").json2html(jhoveRest.modules.modules, transform);
 }
 /**
 * Render the validation result to screen
@@ -118,8 +94,7 @@ function renderResult() {
       "text"  : function(obj, index) {return (index + 1) + ": " + obj.message;}
     }
   };
-  $("#results").json2html(jhoveValidator.result, transforms.status);
+  $("#results").json2html(jhoveRest.validator.result, transforms.status);
   $("#results").append($("<h3>").text("Messages"));
-  $("#results").json2html(jhoveValidator.result.messages, transforms.messages);
+  $("#results").json2html(jhoveRest.validator.result.messages, transforms.messages);
 }
-

@@ -2,7 +2,7 @@
 * Document ready function, loaded up on start
 */
 $(document).ready(function() {
-    jhoveApp.getDetails(function() {
+    jhoveRest.app.getDetails(function() {
       renderResult();
   });
 });
@@ -34,5 +34,5 @@ function renderResult() {
       ]
     }
   };
-  $("#results").json2html(jhoveApp.details, transforms.details);
+  $("#results").json2html(jhoveRest.app.details, transforms.details);
 }
