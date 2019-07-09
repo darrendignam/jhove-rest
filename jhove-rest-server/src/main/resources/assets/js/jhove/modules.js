@@ -14,8 +14,9 @@ $(document).ready(function() {
 * Render the validation result to screen
 */
 function renderModules() {
-  var transform = {
-		  "<>"    : "li",
+  var transforms = {
+		"modules" : {
+			"<>"    : "li",
 		  "class" : "list-group-item",
 		  "html"  : [
 			  {
@@ -27,25 +28,30 @@ function renderModules() {
 						"class" : "card-body",
 						"html" : [
 							{
-								"<>" : "h5",
+								"<>" : "h4",
 								"class" : "card-title",
-								"text" : "Module ${name}"
+								"text" : "${moduleId.name} v${moduleId.release}"
 							},
 							{
 								"<>" : "p",
 								"class" : "card-text",
-								"text" : "v${release}"
+								"text" : function(obj, index) {var date = new Date(obj.moduleId.date); return "Built " + date.toUTCString();}
 							},
 							{
-								"<>" : "p",
+								"<>" : "ul",
 								"class" : "card-text",
-								"text" : function(obj, index) {var date = new Date(obj.date); return "Built " + date.toUTCString();}
+								"html" : function() {return $.json2html(this.formatDetails.mimeTypes, transforms.mimes);}
 							}
 						]
 					}
 				]
 			  }
-		  ]};
+		  ]},
+			"mimes" 	: {
+				"<>"		: "li",
+				"text"	: function() {return this + '';}
+			}
+		};
 
-  $("ul").json2html(jhoveRest.modules.modules, transform);
+  $("ul").json2html(jhoveRest.modules.modules, transforms.modules);
 }

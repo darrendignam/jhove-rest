@@ -25,9 +25,9 @@ function renderResult() {
             "text"  : function(obj, index) {var date = new Date(obj.buildDate); return "Built " + date.toUTCString();}
           },
           {
-            "<>"    : "h3",
+            "<>"    : "h2",
 	        "text"  : "Rights"},
-	      {
+	        {
             "<>"    : "p",
             "text"  : "${rights}"
           }
