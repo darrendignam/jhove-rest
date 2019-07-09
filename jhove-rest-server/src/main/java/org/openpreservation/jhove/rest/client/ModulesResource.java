@@ -8,26 +8,25 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.openpreservation.jhove.rest.client.views.ValidateView;
+import org.openpreservation.jhove.rest.client.views.ModulesView;
 
 /**
  * @author cfw
  *
  */
-@Path("/validate")
+@Path("/modules")
 @Produces({ MediaType.TEXT_HTML })
-public final class ValidateResource {
+public final class ModulesResource {
 
 	/**
 	 * 
 	 */
-	public ValidateResource() {
+	public ModulesResource() {
 		super();
 	}
 
 	@GET
-	public static ValidateView validate() {
-		System.err.println("VALIDATE");
-		return new ValidateView();
+	public ModulesView getModules() {
+		return new ModulesView();
 	}
 }
