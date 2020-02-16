@@ -15,7 +15,7 @@ var jhoveRest = {
         processData: false,
         success: function (data, textStatus, jqXHR) {
           console.log(jqXHR)
-          jhoveRest.validator.result = data;
+          jhoveRest.validator.result = data
           callback()
         },
         // HTTP Error handler
@@ -23,8 +23,6 @@ var jhoveRest = {
           // Log full error to console
           console.log('Validation Error: ' + textStatus + errorThrown)
           console.log(jqXHR)
-          // Alert the user with details
-          alert('Something has gone wrong!!\n\nHTTP ' + jqXHR.status + ': ' + jqXHR.responseText)
         }
       })
     }
@@ -46,8 +44,28 @@ var jhoveRest = {
           // Log full error to console
           console.log('Validation Error: ' + textStatus + errorThrown)
           console.log(jqXHR)
+        }
+      })
+    }
+  },
+  env: {
+    details: null,
+    getDetails: function (callback, contentType = 'json') {
+      $.ajax({
+        url: '/api/info/',
+        dataType: contentType,
+        type: 'GET',
+        success: function (data, textStatus, jqXHR) {
+          console.log(jqXHR)
+          jhoveRest.env.details = data
+          callback()
+        },
+        // HTTP Error handler
+        error: function (jqXHR, textStatus, errorThrown) {
+          // Log full error to console
+          console.log('Validation Error: ' + textStatus + errorThrown)
+          console.log(jqXHR)
           // Alert the user with details
-          alert('Something has gone wrong!!\n\nHTTP ' + jqXHR.status + ': ' + jqXHR.statusText)
         }
       })
     }

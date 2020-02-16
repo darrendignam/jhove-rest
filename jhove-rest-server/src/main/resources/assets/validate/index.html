@@ -18,16 +18,16 @@
   <meta name="application-name" content="JHOVE">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- Bootstrap 4.0.0 -->
+  <!-- Bootstrap 4.4.1 -->
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  <!-- Validator client theme -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/jhove.css">
 
 </head>
 <body>
   <div class="container">
 
-    <h1>Welcome to the JHOVE REST demonstrator</h1>
+    <h1>JHOVE REST demonstrator</h1>
     <div class="row">
       <div class="col"></div>
       <div class="col-8">
@@ -43,7 +43,7 @@
             <input id="digest" type="text" class="form-control"  placeholder="SHA-1 hash of selected file." readonly >
           </div>
           <div class="form-group">
-            <label for=module">Choose module: </label>
+            <label for="module">Choose module: </label>
             <select id="module" name="module" class="custom-select"></select>
           </div>
           <button type="button" class="btn btn-primary" disabled >Submit</button>
@@ -62,11 +62,11 @@
 
   <!-- Load the JavaScript bulk last -->
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <!-- Here be poppers -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  <!-- JHOVE REST resources, JQuery wrappers for REST calls -->
   <!-- Client side SHA-1 calculation -->
   <script src="/js/ext/sha1.js"></script>
   <!-- JHOVE REST resources, JQuery wrappers for REST calls -->
