@@ -1,7 +1,7 @@
 /**
 * Document ready function, loaded up on start
 */
-$(document).ready(function() {
+$(document).ready(function () {
   /**
   * Event handler for the file selector
   */
@@ -78,22 +78,21 @@ function renderResult () {
         {
           '<>': 'div',
           class: function (obj, index) { return 'alert ' + ((obj.valid > 0) ? 'alert-success' : 'alert-danger') },
-          text: 'Validity: ${validMessage}'
-        },
-        {
-          '<>': 'div',
-          class: function (obj, index) { return 'alert ' + ((obj.wellFormed > 0) ? 'alert-success' : 'alert-danger') },
-          text: 'Well Formedness: ${wellFormedMessage}'
+          text: function (obj, index) { return jhoveResultString(obj.wellFormed, obj.valid) }
         }
       ]
     },
     messages: {
       '<>': 'div',
-//      'class' : function(obj, index) {return 'alert ' + (obj.level == 'ERROR' ? 'alert-danger' : 'alert-warning');},
+      class: function (obj, index) { return 'alert ' + (obj.prefix === 'Error' ? 'alert-danger' : 'alert-warning') },
       text: function (obj, index) { return (index + 1) + ': ' + obj.message }
     }
-  };
+  }
   $('#results').json2html(jhoveRest.validator.result, transforms.status)
   $('#results').append($('<h3>').text('Messages'))
   $('#results').json2html(jhoveRest.validator.result.messages, transforms.messages)
+}
+
+function jhoveResultString (wellFormed, valid) {
+  return (wellFormed < 1) ? 'Not well-formed' : (valid < 1) ? 'Well-formed, but not valid.' : 'Well-formed and valid'
 }
