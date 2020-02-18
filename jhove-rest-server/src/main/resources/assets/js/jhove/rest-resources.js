@@ -79,7 +79,17 @@ var jhoveRest = {
         type: 'GET',
         success: function (data, textStatus, jqXHR) {
           console.log(jqXHR)
-          jhoveRest.modules.modules = data
+          jhoveRest.modules.modules = data.sort((a, b) => {
+            var aName = a.name.toUpperCase()
+            var bName = b.name.toUpperCase()
+            if (aName < bName) {
+              return -1
+            }
+            if (aName > bName) {
+              return 1
+            }
+            return 0
+          })
           callback()
         },
         // HTTP Error handler

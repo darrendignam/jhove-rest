@@ -21,19 +21,15 @@ function renderAppDetails () {
       html: [
         {
           '<>': 'h1',
-          text: 'JHOVE v${version} REST Services'
+          text: 'JHOVE REST Services'
         },
         {
           '<>': 'p',
-          text: function (obj, index) { var date = new Date(obj.buildDate); return 'Built on ' + date.toUTCString() }
+          text: function (obj, index) { var date = new Date(obj.buildDate); return 'v' + obj.version + ', built on ' + date.toUTCString() }
         },
         {
-          '<>': 'h2',
+          '<>': 'p',
           class: 'rights',
-          text: 'Rights'
-        },
-        {
-          '<>': 'p',
           text: '${rights}'
         }
       ]
@@ -53,12 +49,8 @@ function renderEnvDetails () {
       '<>': 'div',
       html: [
         {
-          '<>': 'h2',
-          text: '${os.name} v${os.version} arch: ${os.architecture}'
-        },
-        {
           '<>': 'p',
-          text: '${java.vendor} Java v${java.version}${java.architecture}'
+          text: '${os.name} v${os.version}, Java v${java.version}${java.architecture} ${java.vendor}'
         }
       ]
     }
