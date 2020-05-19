@@ -21,6 +21,8 @@ import io.swagger.annotations.SwaggerDefinition;
  * @version 0.1
  */
 @Path("/")
+@Produces(MediaType.APPLICATION_JSON)
+@Api(value = "jhove")
 @SwaggerDefinition(info=@Info(
         description = "Rest API for Jhove",
         version = "V0.0.2",
