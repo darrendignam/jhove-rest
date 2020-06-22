@@ -20,10 +20,6 @@ function renderAppDetails () {
       '<>': 'div',
       html: [
         {
-          '<>': 'h1',
-          text: 'JHOVE REST Services'
-        },
-        {
           '<>': 'p',
           text: function (obj, index) { var date = new Date(obj.buildDate); return 'v' + obj.version + ', built on ' + date.toUTCString() }
         },
